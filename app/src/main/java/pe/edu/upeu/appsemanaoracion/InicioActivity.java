@@ -1,8 +1,13 @@
 package pe.edu.upeu.appsemanaoracion;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +17,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class InicioActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Fragment fragmentoGenerico = null;
+    FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +31,6 @@ public class InicioActivity extends AppCompatActivity
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +40,13 @@ public class InicioActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(navigationView != null){
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.principales, new FragmentInicio())
+                    .commit();
+        }
     }
 
     @Override
@@ -80,21 +87,52 @@ public class InicioActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_inicio) {
+            fragmentoGenerico = new FragmentInicio();
+        } else if (id == R.id.nav_programacion) {
+            fragmentoGenerico = new FragmentProgramacion();
+        } else if (id == R.id.nav_Canticos) {
+            fragmentoGenerico = new FragmentCanticos();
+        } else if (id == R.id.nav_mensajes) {
+            fragmentoGenerico = new FragmentMensajes();
+        } else if (id == R.id.nav_contactos) {
+            fragmentoGenerico = new FragmentContactos();
+        } else if (id == R.id.nav_sesion) {
+            fragmentoGenerico = new FragmentSesion();
+        } else if (id == R.id.nav_salir) {
+            LayoutInflater inflateEliminar = getLayoutInflater();
+            final View dialogLayoutEliminar = inflateEliminar.inflate(R.layout.cerrar_aplicacion, null);
 
-        } else if (id == R.id.nav_slideshow) {
+            final TextView textEliminar = (TextView) dialogLayoutEliminar.findViewById(R.id.TextEliminar);
+            textEliminar.setText("¿Seguro que desea cerrar la aplicación?");
 
-        } else if (id == R.id.nav_manage) {
+            AlertDialog.Builder info = new AlertDialog.Builder(InicioActivity.this);
+            info.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    InicioActivity.this.finish();
+                    finish();
+                }
+            });
+            info.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            info.setView(dialogLayoutEliminar);
+            info.show();
+        }
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if(fragmentoGenerico != null){
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.principales, fragmentoGenerico)
+                    .commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        item.setChecked(true);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
