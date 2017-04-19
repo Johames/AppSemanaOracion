@@ -88,18 +88,36 @@ public class InicioActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
+
             fragmentoGenerico = new FragmentInicio();
+            setTitle(item.getTitle());
+
         } else if (id == R.id.nav_programacion) {
+
             fragmentoGenerico = new FragmentProgramacion();
+            setTitle(item.getTitle());
+
         } else if (id == R.id.nav_Canticos) {
+
             fragmentoGenerico = new FragmentCanticos();
-        } else if (id == R.id.nav_mensajes) {
-            fragmentoGenerico = new FragmentMensajes();
+            setTitle(item.getTitle());
+
         } else if (id == R.id.nav_contactos) {
+
             fragmentoGenerico = new FragmentContactos();
+            setTitle(item.getTitle());
+
         } else if (id == R.id.nav_sesion) {
-            fragmentoGenerico = new FragmentSesion();
+
+            LayoutInflater inflateEliminar = getLayoutInflater();
+            final View dialogLayoutEliminar = inflateEliminar.inflate(R.layout.sesion, null);
+
+            AlertDialog.Builder info = new AlertDialog.Builder(InicioActivity.this);
+            info.setView(dialogLayoutEliminar);
+            info.show();
+
         } else if (id == R.id.nav_salir) {
+
             LayoutInflater inflateEliminar = getLayoutInflater();
             final View dialogLayoutEliminar = inflateEliminar.inflate(R.layout.cerrar_aplicacion, null);
 
@@ -122,6 +140,7 @@ public class InicioActivity extends AppCompatActivity
             });
             info.setView(dialogLayoutEliminar);
             info.show();
+
         }
 
         if(fragmentoGenerico != null){
@@ -131,8 +150,10 @@ public class InicioActivity extends AppCompatActivity
                     .commit();
         }
 
+        //setTitle(item.getTitle());
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        item.setChecked(true);
+        //item.setChecked(true);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

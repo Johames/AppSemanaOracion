@@ -4,15 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ExpandableListView
-        android:id="@+id/filtroProgramacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
     <ListView
-        android:id="@+id/listaProgramacion"
+        android:id="@+id/listaProgramaHoy"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

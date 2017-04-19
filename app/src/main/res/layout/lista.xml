@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgContacto"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/foto"
+        app:civ_border_color="#bebebe"
+        app:civ_border_width="2dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:gravity="center|center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="left"
+            android:layout_weight="0.81"
+            android:layout_marginRight="50dp">
+
+            <TextView
+                android:id="@+id/nombreContacto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_weight="1"
+                android:text="Nombre del Pastor"
+                android:gravity="center|left"
+                android:textStyle="bold"
+                android:typeface="serif"/>
+
+            <TextView
+                android:id="@+id/datosContacto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Otros Datos"
+                android:gravity="center|left"
+                android:typeface="serif" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/infoContacto"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="-50dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_menu_info" />
+
+    </LinearLayout>
+
+</LinearLayout>
