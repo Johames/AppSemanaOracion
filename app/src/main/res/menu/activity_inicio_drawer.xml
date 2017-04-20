@@ -18,14 +18,11 @@
             android:id="@+id/nav_contactos"
             android:icon="@drawable/ic_menu_contactos"
             android:title="Contactos" />
-        <!-- <item
-            android:id="@+id/nav_sesion"
-            android:icon="@drawable/ic_menu_sesion"
-            android:title="Iniciar Sesión" />
         <item
-            android:id="@+id/nav_salir"
-            android:icon="@drawable/ic_menu_salir"
-            android:title="Salir de la Aplicación" /> -->
+            android:id="@+id/nav_mensajes"
+            android:icon="@drawable/ic_menu_mensajes"
+            android:title="Mensajes"
+            android:visible="true" />
     </group>
 
     <item android:title="Opciones">
@@ -33,7 +30,8 @@
             <item
                 android:id="@+id/nav_sesion"
                 android:icon="@drawable/ic_menu_sesion"
-                android:title="Iniciar Sesión" />
+                android:title="Iniciar Sesión"
+                android:visible="true" />
             <item
                 android:id="@+id/nav_salir"
                 android:icon="@drawable/ic_menu_salir"

@@ -107,6 +107,11 @@ public class InicioActivity extends AppCompatActivity
             fragmentoGenerico = new FragmentContactos();
             setTitle(item.getTitle());
 
+        } else if(id == R.id.nav_mensajes){
+
+            fragmentoGenerico = new FragmentMensajes();
+            setTitle(item.getTitle());
+
         } else if (id == R.id.nav_sesion) {
 
             LayoutInflater inflateEliminar = getLayoutInflater();

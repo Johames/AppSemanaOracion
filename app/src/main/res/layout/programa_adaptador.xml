@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/horaInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inicio: Hora inicio"
+        android:textColor="@color/colorBlack"
+        android:textStyle="normal"
+        android:typeface="serif"
+        android:background="@drawable/hora_programa"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/seccion_programa">
+
+        <TextView
+            android:id="@+id/seccionPrograma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seccion del programa"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:textColor="@color/colorBlack"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/horaFin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:typeface="serif"
+            android:textColor="@color/colorPrimary"
+            android:text="Hasta: Hora final"/>
+
+    </LinearLayout>
+
+</LinearLayout>

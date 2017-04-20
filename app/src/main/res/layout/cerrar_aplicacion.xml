@@ -14,8 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="false"
         android:layout_alignParentBottom="false"
-        card_view:cardElevation="5dp"
-        card_view:cardBackgroundColor="#f44336">
+        card_view:cardBackgroundColor="@color/colorRojo">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -30,7 +29,8 @@
                 android:id="@+id/textView3"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="#fff"
+                android:paddingBottom="10dp"
+                android:textColor="@color/colorWhite"
                 android:textSize="30dp"
                 android:textStyle="bold|italic"
                 android:typeface="serif"
@@ -48,8 +48,7 @@
         android:layout_alignParentTop="false"
         android:layout_alignWithParentIfMissing="false"
         android:layout_alignParentBottom="false"
-        android:layout_marginTop="-16dp"
-        card_view:cardElevation="5dp">
+        android:layout_marginTop="-16dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -69,7 +68,7 @@
                 android:layout_marginRight="6dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_horizontal"
-                android:textColor="#cd0202" />
+                android:textColor="@color/colorRojoDark" />
 
         </LinearLayout>
 
