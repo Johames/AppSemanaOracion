@@ -17,28 +17,28 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/msmPriv"
+            android:id="@+id/turnoM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/privado_select"
             android:textColor="@color/colorWhite"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:text="Privados" />
+            android:text="Mañana" />
 
         <Button
-            android:id="@+id/msmGen"
+            android:id="@+id/turnoT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:text="Generales"
+            android:text="Tarde"
             android:background="@drawable/general"/>
 
         <Button
-            android:id="@+id/msmLeid"
+            android:id="@+id/turnoN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/leidos"
-            android:text="Leidos"
+            android:text="Noche"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
     </LinearLayout>
@@ -50,7 +50,7 @@
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/listaMensajes"
+            android:id="@+id/listaTurnoPrograma"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

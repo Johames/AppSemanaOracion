@@ -4,9 +4,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -29,6 +32,22 @@ public class FragmentMensajes extends Fragment {
                              Bundle savedInstanceState) {
         vista = inflater.inflate(R.layout.fragment_mensajes, container, false);
 
+        listaMsmPrivada = (ListView) vista.findViewById(R.id.listaMensajes);
+
+        ArrayAdapter<String> adaptadorlistaMsmPrivada = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, privados);
+        listaMsmPrivada.setAdapter(adaptadorlistaMsmPrivada);
+        listaMsmPrivada.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                DialogMensajes mensajesDialogFragment = new DialogMensajes();
+
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.add(android.R.id.content, mensajesDialogFragment).addToBackStack(null).commit();
+            }
+        });
+
         btnPriv = (Button) vista.findViewById(R.id.msmPriv);
         btnPriv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +58,20 @@ public class FragmentMensajes extends Fragment {
                 btnGen.setTextColor(Color.BLACK);
                 btnLeid.setBackgroundResource(R.drawable.leidos);
                 btnLeid.setTextColor(Color.BLACK);
-                listaMsmPrivada.setVisibility(v.VISIBLE);
-                listaMsmGeneral.setVisibility(v.INVISIBLE);
-                listaMsmLeidos.setVisibility(v.INVISIBLE);
+
+                ArrayAdapter<String> adaptadorlistaMsmPrivada = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, privados);
+                listaMsmPrivada.setAdapter(adaptadorlistaMsmPrivada);
+                listaMsmPrivada.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        DialogMensajes mensajesDialogFragment = new DialogMensajes();
+
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        transaction.add(android.R.id.content, mensajesDialogFragment).addToBackStack(null).commit();
+                    }
+                });
             }
         });
 
@@ -55,9 +85,20 @@ public class FragmentMensajes extends Fragment {
                 btnGen.setTextColor(Color.WHITE);
                 btnLeid.setBackgroundResource(R.drawable.leidos);
                 btnLeid.setTextColor(Color.BLACK);
-                listaMsmPrivada.setVisibility(v.INVISIBLE);
-                listaMsmGeneral.setVisibility(v.VISIBLE);
-                listaMsmLeidos.setVisibility(v.INVISIBLE);
+
+                ArrayAdapter<String> adaptadorlistaMsmGeneral = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, general);
+                listaMsmPrivada.setAdapter(adaptadorlistaMsmGeneral);
+                listaMsmPrivada.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        DialogMensajes mensajesDialogFragment = new DialogMensajes();
+
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        transaction.add(android.R.id.content, mensajesDialogFragment).addToBackStack(null).commit();
+                    }
+                });
             }
         });
 
@@ -71,23 +112,22 @@ public class FragmentMensajes extends Fragment {
                 btnGen.setTextColor(Color.BLACK);
                 btnLeid.setBackgroundResource(R.drawable.leido_select);
                 btnLeid.setTextColor(Color.WHITE);
-                listaMsmPrivada.setVisibility(v.INVISIBLE);
-                listaMsmGeneral.setVisibility(v.INVISIBLE);
-                listaMsmLeidos.setVisibility(v.VISIBLE);
+
+                ArrayAdapter<String> adaptadorlistaMsmLeidos = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, leidos);
+                listaMsmPrivada.setAdapter(adaptadorlistaMsmLeidos);
+                listaMsmPrivada.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        DialogMensajes mensajesDialogFragment = new DialogMensajes();
+
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        transaction.add(android.R.id.content, mensajesDialogFragment).addToBackStack(null).commit();
+                    }
+                });
             }
         });
-
-        listaMsmPrivada = (ListView) vista.findViewById(R.id.mensajesPrivados);
-        ArrayAdapter<String> adaptadorlistaMsmPrivada = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, privados);
-        listaMsmPrivada.setAdapter(adaptadorlistaMsmPrivada);
-
-        listaMsmGeneral = (ListView) vista.findViewById(R.id.mensajesGenerales);
-        ArrayAdapter<String> adaptadorlistaMsmGeneral = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, general);
-        listaMsmGeneral.setAdapter(adaptadorlistaMsmGeneral);
-
-        listaMsmLeidos = (ListView) vista.findViewById(R.id.mensajesLeidos);
-        ArrayAdapter<String> adaptadorlistaMsmLeidos = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, leidos);
-        listaMsmLeidos.setAdapter(adaptadorlistaMsmLeidos);
 
         return vista;
     }

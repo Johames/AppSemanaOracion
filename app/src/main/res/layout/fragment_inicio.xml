@@ -7,96 +7,104 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="9dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bienvenida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/privado_select"
+            android:padding="10dp"
+            android:textColor="@color/colorWhite"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:text="Bienvenida" />
+
+        <Button
+            android:id="@+id/biografia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/leidos"
+            android:padding="10dp"
+            android:text="Biografía"
+            android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    </LinearLayout>
+
     <ScrollView
+        android:id="@+id/scrool"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
         android:layout_weight="1"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="@string/large_text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/IMGbienvnida"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/foto"
-                    app:civ_border_color="#bebebe"
-                    app:civ_border_width="2dp" />
+                <TextView
+                    android:id="@+id/contenido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/large_text" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:gravity="center|center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.81"
-                        android:gravity="left"
-                        android:orientation="vertical">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/IMG"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        app:civ_border_color="@color/colorPlomo"
+                        app:civ_border_width="2dp" />
 
-                        <TextView
-                            android:id="@+id/textView12"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center|left"
-                            android:text="Nombre del Responsable"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
+                            android:layout_weight="0.81"
+                            android:gravity="left"
+                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center|center_horizontal"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/textView11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center|left"
-                            android:text="Otros Datos"
-                            android:typeface="serif" />
+                            <TextView
+                                android:id="@+id/Nomb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center|left"
+                                android:text="Nombre del Director"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:typeface="serif" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/Datos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center|left"
+                                android:text="Otros Datos del Director"
+                                android:typeface="serif" />
+
+                        </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
-
     </ScrollView>
-
-    <!-- <Button
-        android:id="@+id/EnvMensaje"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/guardar"
-        android:text="Progamación de Hoy"
-        android:textColor="#ffffff"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        android:typeface="serif" /> -->
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
