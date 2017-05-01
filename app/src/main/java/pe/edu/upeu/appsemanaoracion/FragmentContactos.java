@@ -35,9 +35,6 @@ public class FragmentContactos extends Fragment {
                 LayoutInflater inflateEliminar = getLayoutInflater(getArguments());
                 final View dialogLayoutEliminar = inflateEliminar.inflate(R.layout.perfil, null);
 
-                //final TextView textEliminar = (TextView) dialogLayoutEliminar.findViewById(R.id.TextEliminar);
-                //textEliminar.setText("¿Seguro que desea cerrar la aplicación?");
-
                 AlertDialog.Builder info = new AlertDialog.Builder(getActivity());
                 info.setView(dialogLayoutEliminar);
                 info.show();

@@ -48,19 +48,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/contenido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/large_text" />
-
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal">
+                    android:baselineAligned="true"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/IMG"
@@ -69,38 +63,40 @@
                         app:civ_border_color="@color/colorPlomo"
                         app:civ_border_width="2dp" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.81"
-                            android:gravity="left"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center|center_horizontal"
-                            android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/Nomb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|left"
+                        android:text="Nombre del Director"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
 
-                            <TextView
-                                android:id="@+id/Nomb"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center|left"
-                                android:text="Nombre del Director"
-                                android:textSize="15dp"
-                                android:textStyle="bold"
-                                android:typeface="serif" />
-
-                            <TextView
-                                android:id="@+id/Datos"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center|left"
-                                android:text="Otros Datos del Director"
-                                android:typeface="serif" />
-
-                        </LinearLayout>
+                    <TextView
+                        android:id="@+id/Datos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text="Otros Datos del Director"
+                        android:typeface="serif" />
 
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/contenido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/large_text" />
 
             </LinearLayout>
 
@@ -109,8 +105,9 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        card_view:cardCornerRadius="0dp"
         android:id="@+id/programaHoy"
-        card_view:cardBackgroundColor="@color/colorPrimary">
+        card_view:cardBackgroundColor="@color/colorPrimaryNormal">
 
         <TextView
             android:layout_width="match_parent"

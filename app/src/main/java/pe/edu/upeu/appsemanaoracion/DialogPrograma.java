@@ -34,7 +34,13 @@ public class DialogPrograma extends DialogFragment {
             "Programa de Hoy9",
             "Programa de Hoy10",
             "Programa de Hoy11",
-            "Programa de Hoy12"
+            "Programa de Hoy12",
+            "Programa de Hoy13",
+            "Programa de Hoy14",
+            "Programa de Hoy15",
+            "Programa de Hoy16",
+            "Programa de Hoy17",
+            "Programa de Hoy18"
     };
 
     @Override

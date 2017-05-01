@@ -89,50 +89,57 @@ public class InicioActivity extends AppCompatActivity
 
             fragmentoGenerico = new FragmentInicio();
             setTitle(item.getTitle());
+            item.setChecked(true);
 
         } else if (id == R.id.nav_programacion) {
 
             fragmentoGenerico = new FragmentProgramacion();
             setTitle(item.getTitle());
+            item.setChecked(true);
 
         } else if (id == R.id.nav_Canticos) {
 
             fragmentoGenerico = new FragmentCanticos();
             setTitle(item.getTitle());
+            item.setChecked(true);
 
         } else if (id == R.id.nav_contactos) {
 
             fragmentoGenerico = new FragmentContactos();
             setTitle(item.getTitle());
+            item.setChecked(true);
 
         } else if(id == R.id.nav_mensajes){
 
             fragmentoGenerico = new FragmentMensajes();
             setTitle(item.getTitle());
+            item.setChecked(true);
 
         } else if (id == R.id.nav_sesion) {
 
-            LayoutInflater inflateEliminar = getLayoutInflater();
-            final View dialogLayoutEliminar = inflateEliminar.inflate(R.layout.sesion, null);
+            fragmentoGenerico = new FragmentLogIn();
+            setTitle(item.getTitle());
+            item.setChecked(true);
 
-            AlertDialog.Builder info = new AlertDialog.Builder(InicioActivity.this);
-            info.setView(dialogLayoutEliminar);
-            info.show();
+        } else if (id == R.id.nav_comentarios){
 
-        } else if (id == R.id.nav_salir) {
+            fragmentoGenerico = new FragmentComentarios();
+            setTitle(item.getTitle());
+            item.setChecked(true);
 
-            LayoutInflater inflateEliminar = getLayoutInflater();
-            final View dialogLayoutEliminar = inflateEliminar.inflate(R.layout.cerrar_aplicacion, null);
+        } else if(id == R.id.nav_cerrar_sesion){
 
-            final TextView textEliminar = (TextView) dialogLayoutEliminar.findViewById(R.id.TextEliminar);
-            textEliminar.setText("¿Seguro que desea cerrar la aplicación?");
+            LayoutInflater inflateCerrarSesion = getLayoutInflater();
+            final View dialogLayoutCerrarSesion = inflateCerrarSesion.inflate(R.layout.cerrar_aplicacion, null);
+
+            final TextView textCerrarSesion = (TextView) dialogLayoutCerrarSesion.findViewById(R.id.TextEliminar);
+            textCerrarSesion.setText("¿Seguro que desea cerrar su Sesión?");
 
             AlertDialog.Builder info = new AlertDialog.Builder(InicioActivity.this);
             info.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    InicioActivity.this.finish();
-                    finish();
+                    dialog.dismiss();
                 }
             });
             info.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -141,7 +148,7 @@ public class InicioActivity extends AppCompatActivity
                     dialog.dismiss();
                 }
             });
-            info.setView(dialogLayoutEliminar);
+            info.setView(dialogLayoutCerrarSesion);
             info.show();
 
         }
@@ -153,10 +160,7 @@ public class InicioActivity extends AppCompatActivity
                     .commit();
         }
 
-        //setTitle(item.getTitle());
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //item.setChecked(true);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

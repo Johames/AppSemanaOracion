@@ -33,9 +33,15 @@
                 android:title="Iniciar Sesión"
                 android:visible="true" />
             <item
-                android:id="@+id/nav_salir"
+                android:id="@+id/nav_comentarios"
+                android:icon="@drawable/ic_menu_comentario"
+                android:title="Dejanos un Comentario"
+                android:visible="true" />
+            <item
+                android:id="@+id/nav_cerrar_sesion"
                 android:icon="@drawable/ic_menu_salir"
-                android:title="Salir de la Aplicación" />
+                android:title="Cerrar Sesión"
+                android:visible="true" />
         </menu>
     </item>
 
